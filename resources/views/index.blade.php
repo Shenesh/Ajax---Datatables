@@ -21,7 +21,7 @@
                         <th>ID</th>
                         <th>Student</th>
                         <th>Fav Color</th>
-                        {{-- <th >Actions</th> --}}
+                        <th >Actions</th>
 
                     </tr>
                 </thead>
@@ -47,7 +47,7 @@ $(document).ready(function() {
                 {data: 'id', name: 'id'},
                 {data: 'std_name', name: 'std_name'},
                 {data: 'std_color', name: 'std_color'},
-                // {data: 'action', name: 'action'},
+                {data: 'action', name: 'action'},
 
                 
             ]

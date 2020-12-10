@@ -93,13 +93,15 @@ class LearnAjaxController extends Controller
         $ajaxdata = LearnAjax::all();
        
         return Datatables::of($ajaxdata)
-        // ->addColumn('action', function ($ajaxdata) {
-        //     $buttons ='<a  href="'.url('/ajax/'.$ajaxdata->id.'/').'">View</a> <a class="far fa-edit btn btn-sm btn-success btn-rounded m-b-1 m-l-5" href="'.url('/ajax/'.$ajaxdata->id.'/edit').'">Edit</a><input type="hidden" id="hiddenID" value="'.$ajaxdata->id.'"><button class="
-        //     far fa-trash-alt btn btn-sm btn-danger btn-rounded m-b-1 m-l-5" id="delete">Delete</button>';
+        ->addColumn('action', function ($ajaxdata) {
+            $buttons ='<a  href="'.url('/ajax/'.$ajaxdata->id.'/').'">View</a> 
+            <a class="far fa-edit btn btn-sm btn-success btn-rounded m-b-1 m-l-5" href="'.url('/ajax/'.$ajaxdata->id.'/edit').'">Edit</a>
+            <input type="hidden" id="hiddenID" value="'.$ajaxdata->id.'">
+            <button class="far fa-trash-alt btn btn-sm btn-danger btn-rounded m-b-1 m-l-5" id="delete">Delete</button>';
 
            
-        //     return $buttons;
-        // })
+            return $buttons;
+        })
 
         ->make(true);
 
