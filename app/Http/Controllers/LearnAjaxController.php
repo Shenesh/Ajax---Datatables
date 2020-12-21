@@ -37,7 +37,8 @@ class LearnAjaxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        LearnAjax::create($request->all());
+        return redirect()->route('ajax.index');
     }
 
     /**
@@ -82,7 +83,9 @@ class LearnAjaxController extends Controller
      */
     public function destroy(LearnAjax $learnAjax)
     {
-        return response()->json(['status' => 'success', 'message' =>'Pissuda Ban']);
+        //homework - write code to delete the record from database.
+        return response()->json(['status' => 'success', 'message' =>'Thama na bang']);
+        
     }
 
 
@@ -97,7 +100,8 @@ class LearnAjaxController extends Controller
             $buttons ='<a  href="'.url('/ajax/'.$ajaxdata->id.'/').'">View</a> 
             <a class="far fa-edit btn btn-sm btn-success btn-rounded m-b-1 m-l-5" href="'.url('/ajax/'.$ajaxdata->id.'/edit').'">Edit</a>
             <input type="hidden" id="hiddenID" value="'.$ajaxdata->id.'">
-            <button class="far fa-trash-alt btn btn-sm btn-danger btn-rounded m-b-1 m-l-5" id="delete">Delete</button>';
+           
+            <button data-token="'. csrf_token() .'" class="far fa-trash-alt btn btn-sm btn-danger btn-rounded m-b-1 m-l-5" id="delete">Delete</button>';
 
            
             return $buttons;

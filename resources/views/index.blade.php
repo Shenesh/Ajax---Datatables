@@ -39,8 +39,9 @@
     <script>
 $(document).ready(function() {
 
+    var BASE = "{{url('/')}}/";
 
-    $('#table1').DataTable( {
+   var testtable = $('#table1').DataTable( {
         "ajax": "{!! route('ajax.indexpagetable') !!}",
         columns: [
                 
@@ -55,7 +56,39 @@ $(document).ready(function() {
 
 
     } );
-} );
+    $('#table1').on('click','#delete',function(){
+// alert('clicked');
+var value = $(this).closest('tr').find('#hiddenID').val();
+alert('Now you are about to see something new 🕴');
+
+var params = {
+    id:$(this).closest('tr').find('#hiddenID').val(),
+    _token:$(this).data("token"),
+  
+};
+$.ajax({
+    url: BASE+'ajax/'+value,
+    type: 'Delete',
+    dataType: 'Json',
+    data: $.param(params),
+    success:function(response){
+        alert(response.message);
+
+                  
+    }
+   
+});
+
+testtable
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+
+});
+});
+
+
+
     </script>
                 <script>
                     // $(document).ready(function() {

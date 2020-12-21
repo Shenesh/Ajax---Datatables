@@ -61,7 +61,10 @@
 
 
 
+
     $(function(){
+
+      var BASE = "{{url('/')}}/";
 
         $("form").submit(function(e){
         e.preventDefault();
@@ -69,9 +72,11 @@
         $(this).hide();
     });
     $("#titu").click(function(){
-       var email = $("#inputEmail4").val();
-       alert (email);
-       $("#inputEmail4").val('abc@abc.com');
+      //  var email = $("#inputEmail4").val();
+      //  alert (email);
+      //  $("#inputEmail4").val('abc@abc.com');
+
+      alert(BASE);
     });
 
     });
