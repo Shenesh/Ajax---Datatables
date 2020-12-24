@@ -83,11 +83,19 @@ class LearnAjaxController extends Controller
      */
     public function destroy(LearnAjax $learnAjax)
     {
-        //homework - write code to delete the record from database.
-        return response()->json(['status' => 'success', 'message' =>'Thama na bang']);
+     
+    $learnAjax = LearnAjax::where('id',$learnAjax->id)->delete();
+    //homework - write code to delete the record from database.
+    // return response()->json(['status' => 'success', 'message' =>'abc']);
         
     }
+    function remove(Request $request)
+    {
 
+        $learnAjax = LearnAjax::where('id',$request->id)->delete();;
+        return response()->json(['status' => 'success', 'message' =>'Fucked']);
+      
+    }
 
 
 

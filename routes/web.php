@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/getindexpagetable/', 'LearnAjaxController@indexpagetable')->name('ajax.indexpagetable');
+Route::any('/remove/{id}', 'LearnAjaxController@remove')->name('ajax.remove');
 
 Route::resource('ajax','LearnAjaxController');
 Route::resource('js','JsController');

@@ -62,13 +62,13 @@ var value = $(this).closest('tr').find('#hiddenID').val();
 alert('Now you are about to see something new 🕴');
 
 var params = {
-    id:$(this).closest('tr').find('#hiddenID').val(),
+     id:$(this).closest('tr').find('#hiddenID').val(),
     _token:$(this).data("token"),
   
 };
 $.ajax({
-    url: BASE+'ajax/'+value,
-    type: 'Delete',
+    url: BASE+'remove/'+value,
+    type: 'delete',
     dataType: 'Json',
     data: $.param(params),
     success:function(response){
@@ -86,6 +86,7 @@ testtable
 
 });
 });
+
 
 
 
